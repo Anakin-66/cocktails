@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CocktailCard from "../component/CocktailCard";
 
 function CocktailRandomPage () {
 
@@ -35,10 +36,7 @@ function CocktailRandomPage () {
         <main>
         {randomCocktail &&
 
-            <article>
-                <h2> {randomCocktail.strDrink} </h2>
-                <img src={randomCocktail.strThumb} />
-            </article>
+            <CocktailCard cocktailToDisplay={randomCocktail} />
         
         }
         <button onClick={handleButtonClick}> J'ai soif, change de cocktail </button>

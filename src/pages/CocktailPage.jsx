@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import CocktailCard from "../component/CocktailCard";
 
 
 
@@ -51,14 +52,7 @@ function CocktailPage () {
             {/* Je fais un array map pour récupérer les cocktails grâce à la variable cocktails de useState */}
             {cocktails.map ((cocktail) => {
                 return (
-                    <article>
-                        <h2> {cocktail.strDrink} </h2>
-                        <img src={cocktail.strDrinkThumb} />
-                        <Link to={`/cocktails/details/${cocktail.idDrink}`}>
-                        <p>Voir les détails des cocktails</p>
-                        </Link>
-                        
-                    </article>
+                    <CocktailCard cocktailToDisplay={cocktail} />
                 )
 
             })}
