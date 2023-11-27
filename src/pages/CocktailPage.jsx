@@ -54,7 +54,7 @@ function CocktailPage () {
                     <article>
                         <h2> {cocktail.strDrink} </h2>
                         <img src={cocktail.strDrinkThumb} />
-                        <Link to={`/cocktails/details/${cocktail.id}`}>
+                        <Link to={`/cocktails/details/${cocktail.idDrink}`}>
                         <p>Voir les détails des cocktails</p>
                         </Link>
                         

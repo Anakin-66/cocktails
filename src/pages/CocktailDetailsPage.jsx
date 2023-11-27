@@ -11,10 +11,10 @@ function CocktailDetailsPage () {
 
         (async () => {
 
-            const cocktailApiResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${id}`)
+            const cocktailApiResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
             const cocktailApi = await cocktailApiResponse.json();
     
-            setCocktail(cocktailApi.drinks[0])
+            setCocktail(cocktailApi.drinks)
             console.log(cocktailApi);
         })();
 
