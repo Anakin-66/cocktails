@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+
 
 function CocktailPage () {
 
     // Déclaration du hook useState propre à REACT, je déclare une variable cocktails et une fonction setCocktails
     const [cocktails, setCocktails] = useState(null);
     // La condition évitera le composant de s'éxécuter plusieurs fois 
-    if (!cocktails) {
+    // if (!cocktails) {
 
         // Je déclare mon fetch qui va capturer le lien de l'api
     // fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=")
@@ -20,18 +23,24 @@ function CocktailPage () {
     //     console.log(data.drinks);
     // })
 
+
     // Déclaration d'une fonction async anonyme
-    (async () => {
-        // En attente de la réponse du fetch d'API
-        const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=`); 
-        // Dès que l'API est récupéré il passe le json en js pour qu'il devienne lisible
-        const data = await response.json();
-        // Appel de la fonction du useState avec sa variable pour accéder au tableau mal foutu de l'API  
-        setCocktails(data.drinks);
-    // () Pour executer la fonction anonyme
-    })();
+    useEffect(() => {
+
+        (async () => {
+            // En attente de la réponse du fetch d'API
+            const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=`); 
+            // Dès que l'API est récupéré il passe le json en js pour qu'il devienne lisible
+            const data = await response.json();
+            // Appel de la fonction du useState avec sa variable pour accéder au tableau mal foutu de l'API  
+            setCocktails(data.drinks);
+        // () Pour executer la fonction anonyme
+        })();
+
+    }, [])
+    
         
-    }
+    // }
     
 
     return (
@@ -45,6 +54,10 @@ function CocktailPage () {
                     <article>
                         <h2> {cocktail.strDrink} </h2>
                         <img src={cocktail.strDrinkThumb} />
+                        <Link to={`/cocktails/details/${cocktail.id}`}>
+                        <p>Voir les détails des cocktails</p>
+                        </Link>
+                        
                     </article>
                 )
 

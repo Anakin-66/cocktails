@@ -10,9 +10,9 @@ function IngredientPage () {
         // Déclaration de ma fonction asynchrone anonyme, il y a plusieurs façon de le faire mais cette synthaxe est la plus récente
         (async () => {
             // Déclaration d'une variable pour récupérer l'API public grâce à un fetch
-            const ingregientsApiResponse = await fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
+            const ingredientsApiResponse = await fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
             // Conversion du json en js
-            const ingredientsApi = await ingregientsApiResponse.json();
+            const ingredientsApi = await ingredientsApiResponse.json();
             // Execution de la fonction de mon useState
             setIngredients(ingredientsApi.drinks);
             // Execution de la fonction asynchrone grâce aux doubles parenthèses
