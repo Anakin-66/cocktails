@@ -42,6 +42,7 @@ function CocktailPage () {
     
         
     // }
+
     
 
     return (
@@ -52,7 +53,9 @@ function CocktailPage () {
             {/* Je fais un array map pour récupérer les cocktails grâce à la variable cocktails de useState */}
             {cocktails.map ((cocktail) => {
                 return (
+                    <>
                     <CocktailCard cocktailToDisplay={cocktail} />
+                    </>
                 )
 
             })}
